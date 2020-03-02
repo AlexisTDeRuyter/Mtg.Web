@@ -1,0 +1,13 @@
+<mat-card [style.maxWidth.px]="400">
+    <mat-card-header>
+        <mat-card-title>{{ card?.name }}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="card?.image_uris?.art_crop" [alt]="card?.name"/>
+    <mat-card-actions>
+        <button mat-button
+                [disabled]="!card?.scryfall_uri"
+                (click)="navigateToScryfall()">
+            See in Scryfall
+        </button>
+    </mat-card-actions>
+</mat-card>

@@ -1,0 +1,15 @@
+<form [formGroup]="cardForm">
+    <mat-form-field>
+        <input matInput
+               placeholder="Search Cards"
+               [matAutocomplete]="auto"
+               formControlName="cardGroup">
+        <mat-autocomplete #auto="matAutocomplete"
+                          (optionSelected)="getSelectedCard($event.option)">
+            <mat-option *ngFor="let card of filteredCards | async"
+                        [value]="card">
+                <span>{{ card }}</span>
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>
